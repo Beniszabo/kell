@@ -1,8 +1,14 @@
-print('2. feladat: Szökőév listázó')
-evszam1=int(input('Kérem az egyik évszámot: '))
-evszam2=int(input('Kérem az másik évszámot: '))
+from random import randint
 
-szokoevek=[]
+def halmaze(lista:list)->str:
+    if len(set(lista))==len(lista):
+        return 'Halmaznak tekinthető!'
+    return 'Halmaznak nem tekinthető!'
 
-def szokoev_meghatarozasa()
-    
+
+print('2. feladat: Halmaz-e?')
+for i in range(1,9):
+    lista:list[int]=[]
+    for j in range(5):
+        lista.append(randint(0,10))
+    print(f'{i}. {lista} -> {halmaze(lista)}')
