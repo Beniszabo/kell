@@ -1,49 +1,18 @@
-from varosok import *
+#1. Kérjünk be egy időértéket óra:perc:másodperc formátumban, és írjuk ki másodpercben!
+ido=input('Kérem az aktuális időt [óó:pp:mm]: ')
+ido_adatok=ido.split(':')
+masodperc=int(ido_adatok[0])*3600+int(ido_adatok[1])*60+int(ido_adatok[2])
+print(f'Másodpercben: {masodperc}')
 
-beolvas('varosok.txt')
+# 2. Kérjünk be egy időértéket másodpercben, és írjuk ki óra:perc:masodperc formátumban! fgv
+# def idoatalakit(ido):
+#     ora=ido//3600
+#     perc=ido%3600//60
+#     masodperc=ido%60
+#     return (f'{str(ora).zfill(2)}:{str(perc).zfill(2)}:{str(masodperc).zfill(2)}')
+    
 
-print(f'3. feladat: Városok száma: {len(varosok)} db')
+# ido=int(input('Kérem az időt [masodperc]: '))
+# print(idoatalakit(ido))
 
-print(f'4. feladat: indiai nagyvárosok lakosságának összege: {orszag_lakossaga("India")} fő')
 
-legnagyobb=legnagyobb_varos()
-print('5. feladat: Legnagyobb város adatai: ')
-print(f'\tNév: {legnagyobb.varos}')
-print(f'\tOrszág: {legnagyobb.orszag}')
-print(f'\tLakosság: {legnagyobb.lakossag} ezer fő')
-
-if orszag_keres('Magyarország'):
-    print(f'6. feladat: Van magyar város az adatok között')
-else:
-    print(f'6. feladat: Nincs magyar város az adatok között')
-
-print(f'7. feladat: Városok egy szóközzel: {szokozos_varosok(1)} db')
-print(f'7.1 feladat: Városok kettő szóközzel: {szokozos_varosok(2)} db')
-print(f'7.2 feladat: Egy szóból álló városnevek: {szokozos_varosok(0)} db')
-
-print('8. feladat: Ország statisztika')
-for key,value in orszag_statisztika().items():
-    if value>6:
-        print(f'\t{key} {value} db')
-
-print('9. feladat: kina.txt')
-orszag_mentes('kina.txt','Kína')
-
-# Legnagyobb lakosságú város bizonyos országból (ha biztos, hogy van olyan ország)
-legnagyobb=legnagyobb_varos_orszagban('Kína')
-print('10. feladat: A legnagyobb kínai város adatai: ')
-print(f'\tNév: {legnagyobb.varos}')
-print(f'\tOrszág: {legnagyobb.orszag}')
-print(f'\tLakosság: {legnagyobb.lakossag} ezer fő')
-
-# Legnagyobb lakosságú város bizonyos országból ha nem biztos hogy van olyan ország
-
-orszag=input('11. feladat: Melyik ország legnagyobb városára kíváncsi? ')
-if legnagyobb_varos_orszagban2(orszag)==False:
-    print('\tNincs ilyen ország az adatok között!!')
-else:
-    legnagyobb=legnagyobb_varos_orszagban2(orszag)
-    print('A legnagyobb város adatai: ')
-    print(f'\tNév: {legnagyobb.varos}')
-    print(f'\tOrszág: {legnagyobb.orszag}')
-    print(f'\tLakosság: {legnagyobb.lakossag} ezer fő')
